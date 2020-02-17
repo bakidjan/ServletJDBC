@@ -39,7 +39,11 @@ public class ProduitServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String path = request.getServletPath();
 		if (path.equals("/index.do")) {
-			request.getRequestDispatcher("jsp/produits.jsp").forward(request, response);
+			//request.getRequestDispatcher("jsp/products.jsp").forward(request, response);
+			/*
+			 * charger les données a la page d'accueil
+			 */
+			response.sendRedirect("search.java?keyword=");
 		} else if (path.equals("/chercher.do")) {
 			String motCle = request.getParameter("motCle");
 			List<Produit> produits = iProdDao.chercherParMotCle("%" + motCle + "%");
